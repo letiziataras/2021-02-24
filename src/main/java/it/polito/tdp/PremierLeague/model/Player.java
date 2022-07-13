@@ -1,13 +1,17 @@
 package it.polito.tdp.PremierLeague.model;
 
-public class Player {
+
+
+public class Player implements Comparable<Player> {
 	Integer playerID;
 	String name;
+	double efficienza;
 	
-	public Player(Integer playerID, String name) {
+	public Player(Integer playerID, String name){
 		super();
 		this.playerID = playerID;
 		this.name = name;
+		this.efficienza=efficienza;
 	}
 	
 	public Integer getPlayerID() {
@@ -21,6 +25,16 @@ public class Player {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+	
+	public double getEfficienza() {
+		return efficienza;
+	}
+
+	public void setEfficienza(double efficienza) {
+		this.efficienza = efficienza;
 	}
 
 	@Override
@@ -52,7 +66,13 @@ public class Player {
 	public String toString() {
 		return playerID + " - " + name;
 	}
-	
+	public int compareTo(Player other) {
+		// TODO Auto-generated method stub
+		if (other.getEfficienza()>this.efficienza) {
+			return -1;
+		}
+		return 1;
+	}
 	
 	
 }
